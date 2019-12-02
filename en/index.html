@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="title" content="BitShares Mobile">
+  <meta name="description" content="">
+  <meta name="keywords" content="bitshares mobile,btsplusplus,wallet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+  <title>BitShares Mobile</title>
+  <link rel="stylesheet" href="/assets/stylesheets/app.css"/>
+  <link rel="icon" href="/assets/images/icon.png" />
+  <link rel="shortcut icon" href="/assets/images/icon.png" />
+
+</head>
+<body>
+  <script src="../assets/libs/jQuery-2.1.4.min.js" type="text/javascript"></script>
+  <style>
+    body { background-color:  #090f23; font-family: Avenir-light,AvenirLTStd-Light,Helvetica Neue,Arial,Hiragino Sans GB,PingFang SC,Heiti SC,Microsoft YaHei UI,Microsoft YaHei,Source Han Sans,sans-serif; }
+
+
+    #container { width: 100%; margin: 0 auto; opacity: 0; }
+    #container #header{
+      width: 100%; height: 64px; background-color: #090f23;
+    }
+    #header-inner {
+      width: 85%; margin: 0 auto;
+    }
+    #header-left { height: 64px; line-height: 64px; margin-left: 50px; color: #c7cce6; font-size: 16px; }
+    #languages a {  height: 64px; line-height: 64px; padding: 0 5px; color: #c7cce6; font-size: 16px; }
+    #area1-background-wrap {  width: 100%; height: 887px; }
+    #area1-wrap { width: 85%; height: 887px; position: relative; margin: 0 auto; margin-bottom: 100px;  }
+
+    #player-wrap { 
+      position: absolute; left: 24px; top: 61px; width: 355px; height: 769px; z-index: 1;
+    }
+    #player { 
+      position: relative; width: 355px; height: 769px; overflow: hidden;
+    }
+
+    #player img { display: block; position: absolute; }
+    #area1 { width: 400px; height: 800px; margin: 0 auto; position: relative; }
+    #area1-inner { width: 401px; height: 800px; position: relative; padding-top: 40px; }
+
+    #phoneback { position: absolute; left: 0; right: 0; z-index: 2; }
+
+    #player-desc { width: 100%; position: absolute; top: 0; }
+    #player-desc-title { text-align: center; font-size: 32px; color: white; width: 100%; }
+    #player-desc-content { text-align: center; font-size: 18px; color: white; width: 100%; }
+
+    #prod { width: 25%; position: absolute; top: 240px; color: white; }
+    #prod-title { text-align: left; width: 100%; }
+    #prod-content { text-align: left; width: 100%; line-height: 32px; }
+
+    #download {  width: 25%; position: absolute; top: 240px; right: 0; }
+    #download a {  
+      width: 240px;
+      color: #c7cce7; font-size: 18px; padding: 5px 0px; 
+      border: 2px solid #c7cce7;
+      border-radius: 8px;
+      display: block;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    #image01 { width: 80%;  }
+    img.icon {  display: inline-block; width: 14px; height: 16px; margin-right: 10px; }
+  
+    
+    #body2 { width: 100%; height: 700px; }
+    #body2-inner { width: 85%; margin: 0 auto;  }
+    #body2-right { width: 70%; height: 700px; line-height: 700px; }
+    #body2-left {  color: white; width: 30%;}
+    #body2-left .title {  line-height: 55px; font-weight: 400; margin-top: 210px;}
+    #body2-left ul {  font-weight: 400; font-size: 18px; margin-left: 30px;  }
+    #body2-left ul li {  list-style-type:  disc; height: 32px; line-height: 32px; }
+    #image02 { width: 80%; margin-left: 60px; vertical-align: middle; }
+
+    #body3 { width: 100%; height: 700px; }
+    #body3-inner { width: 85%; margin: 0 auto; padding-bottom: 60px;}
+    #body3-left { margin-top: 32px; width: 40%; text-align: right; }
+    #body3-right { padding-top: 300px; color: white; width: 50%;}
+    #body3-right .title {   line-height: 55px; font-weight: 400; }
+    #body3-right ul {  font-weight: 400; font-size: 18px; margin-right: 30px;  }
+    #body3-right ul li {  list-style-type:  disc; height: 32px; line-height: 32px; }
+    #image03 { width: 320px;  }
+
+    #body6 { padding: 80px 0; color: white; background-color: #090f23;}
+    #body6-inner { width: 85%; margin: 0 auto; }
+    #body6 #content { font-size: 24px; height: 32px; line-height: 32px; text-align: center; color: #c7cce7;}
+    .title { font-size: 26px; color: #c7cce7;  }
+    .content { font-size: 18px; line-height: 40px;  color: #7587af; word-wrap: normal; word-break: keep-all; }
+    .language-separator {  color: #c7cce6; }
+
+    #forkme { position:  fixed; top: 0; right: 0; z-index: 6000; }
+
+  </style>
+
+  <div id="container">
+    <div id="header" class="clearfix">
+      <div id="header-inner">
+        <div id="header-left" class="fl">
+          BitShares Mobile
+        </div>
+        <div id="header-right" class="fr">
+          <div id="languages">
+            <!-- TODO:尚未支持EN -->
+<!--             <a id="lang-en" href="javascript:;">EN</a>
+            <span class="language-separator">|</span> -->
+            <a id="lang-zh-cn" href="javascript:;">Cn</a>
+            <a style="padding-left: 30px;" href="./qa.html">FAQ</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div id="body">
+      <div id="area1-background-wrap">
+
+        <div id="area1-wrap">
+
+          <div id="prod">
+            <div id="prod-title" class="title">
+
+            </div>
+            <p id="prod-content" class="content">
+
+            </p>
+          </div>
+          
+          <div id="download">
+            <a id="download-to-click" href="https://app.btspp.io">Click to download</a>
+            <!-- <a id="android" href="https://app.btspp.io"><img class="android icon" src="/assets/images/android.png" />Android</a> -->
+            <!-- <a id="ios" href="https://app.btspp.io"><img class="ios icon" src="/assets/images/apple.png" />iPhone</a> -->
+          </div>
+
+          <div id="area1">
+            <div id="area1-inner">
+              <div id="phoneback">
+                <img src="/assets/images/phonex.png" alt="">
+              </div>
+
+              <div id="player-wrap">
+
+                <div id="player">
+                  <img src="/assets/images/slide2/title.png" width="355" />
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+  
+      </div>
+
+
+      <div id="body2">
+        <div id="body2-inner" class="clearfix">
+          <div id="body2-left" class="fl">
+            <div class="title">Market、K-Line、Time、Depth <br/>Learn about real-time data</div>
+            <p class="content">
+              The first release of wallet mode registration, login and security, double protection<br/>
+              Multi-account mode, safe and convenient<br/>
+              Use native technology, stable, efficient, and say goodbye to stuck
+            </p>
+          </div>
+          <div id="body2-right" class="fr">
+            <img id="image02" src="/assets/images/m4.png" alt="bts++">
+
+
+          </div>
+        </div>
+        
+      </div>
+      <div id="body3">
+        <div id="body3-inner" class="clearfix">
+          <div id="body3-left" class="fl">
+            <img id="image03" src="/assets/images/m5.png" alt="bts++">
+
+          </div>
+          <div id="body3-right" class="fr">
+
+            <div class="title">Voting、Autonomous active community</div>
+            <p class="content">
+              BTS voting, viewing, proxy settings<br/>
+              Help page, automatic jump, simple, popular instructions to help you understand the value
+            </p>
+
+<!--             <ul class="content">
+              <li>Efficient</li>
+              <li>Low Cost</li>
+              <li>User Friendly</li>
+            </ul> -->
+            
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div id="body6">
+        <div id="body6-inner" class="clearfix">
+          <div id="content">Contact us</div>
+          <div id="content">  E-mail：contact@btsplusplus.com</div>
+          <div id="content">Telegram：https://t.me/btsplusplus</div>
+          <div id="content">Copyright © 2019 btspp.io All Rights Reserved.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <a id="forkme" href="https://github.com/bitshares/bitshares-mobile-app" target="_blank">
+    <img id="forkme-github" style="border: 0;" src="/assets/images/forkme.png?v=2019082619" alt="Fork me on GitHub">
+  </a>
+
+  <script type="text/javascript" src="/assets/javascripts/app.js?v=2019082619"></script>
+</body>
+</html>

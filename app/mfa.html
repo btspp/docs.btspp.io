@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<link rel="stylesheet" href="/static/css/md.css">
+</head>
+<body>
+<h1 id="-mfa-">比特股多因子认证（MFA）</h1>
+<p>为增强 BitShares 账号交易安全性，由第三方服务商提供多因素认证服务。</p>
+<h2 id="-">名词解释</h2>
+<p>MFA - Multi-factor authentication，即多重因素认证身份。
+2FA - Two-factor authentication，双重因素认证身份。常见的有谷歌两步验证器（Google authentiator）。</p>
+<h2 id="-">实现原理</h2>
+<p>利用比特股多签系统，由用户和MFA服务提供商（以下简称：服务商）组成多重签名管理账号。用户在进行交易的过程中，由用户自身签名，并请求服务商协助签名。服务商完成各种身份验证后提供签名，完成交易广播。服务商可评估交易风险，启用不同的验证需求。比：仅谷歌验证、谷歌+短信验证等。</p>
+<h2 id="-">权限设计</h2>
+<h4 id="-">账号权限</h4>
+<p>不接管</p>
+<h4 id="-">资金权限</h4>
+<p>用户 50%权重
+服务提供商 50%权重</p>
+<h2 id="-">服务提供商接口</h2>
+<ul>
+<li>接口基本地址：mta.xxx.com</li>
+<li>1、协助签名接口</li>
+<li>2、激活MFA接口</li>
+<li>3、关闭MFA接口</li>
+</ul>
+</body>
+</html>
